@@ -1,0 +1,56 @@
+clauses
+	sotr(1, "Ivanov Ivan Ivanovich", m, date(1990,01,01), date(2020,01,01)).
+	sotr(2, "Petrov Petr Petrovich", m, date(1995,02,02), date(2020,01,01)).
+	sotr(3, "Sidorova Anna Petrovna", f, date(1992,03,03), date(2021,01,01)).
+	sotr(4, "Smirnova Elena Vladimirovna", f, date(1987,04,04), date(2021,01,01)).
+	sotr(5, "Kuznetsova Natalya Aleksandrovna", f, date(1991,05,05), date(2019,01,01)).
+	sotr(6, "Alekseev Aleksey Alekseevich", m, date(1985,06,06), date(2019,01,01)).
+	sotr(7, "Fedorova Ekaterina Ivanovna", f, date(1990,07,07), date(2018,01,01)).
+	sotr(8, "Nikolaev Nikolay Nikolaevich", m, date(1980,08,08), date(2018,01,01)).
+	sotr(9, "Grigoryeva Olga Sergeyevna", f, date(1993,03,03), date(2022,01,01)).
+	sotr(10, "Ivanova Anna Andreevna", f, date(1988,03,03), date(2022,01,01)).
+	sotr(11, "Kazantsev Sergey Vladimirovich", m, date(1983,11,11), date(2017,01,01)).
+	sotr(12, "Kuzmin Dmitry Olegovich", m, date(1992,02,02), date(2017,01,01)).
+
+	otdel(1,"Marketing").
+	otdel(2,"Sell").
+	otdel(3,"Develop").
+
+	dolg(1, "Nachalnik otdela", "Otvichaet za rabotu otdela marketinga", 1).
+	dolg(2, "Zamestitel nachal'nika", "Pomogaet nachal'niku otdela marketinga v rabote", 1).
+	dolg(3, "Sotrudnik otdela", "Razrabatyvaet i realizuet marketingovye strategii", 1).
+	dolg(4, "Nachalnik otdela", "Otvichaet za rabotu otdela prodazh", 2).
+	dolg(5, "Zamestitel nachal'nika", "Pomogaet nachal'niku otdela prodazh v rabote", 2).
+	dolg(6, "Sotrudnik otdela", "Prodaet tovary i okazyvaet konsul'tatsii klientam", 2).
+	dolg(7, "Nachalnik otdela", "Otvichaet za rabotu otdela razrabotki", 3).
+	dolg(8, "Zamestitel nachal'nika", "Pomogaet nachal'niku otdela razrabotki v rabote", 3).
+	dolg(9, "Sotrudnik otdela", "Razrabatyvaet i testiruet programmnoe obespechenie", 3).
+
+	podch(1,2).
+	podch(2,3).
+
+	zanimaet(1, 5, date(2020,01,01)).
+	zanimaet(2, 7, date(2020,01,01)).
+	zanimaet(3, 3, date(2021,01,01)).
+	zanimaet(4, 2, date(2021,01,01)).
+	zanimaet(5, 8, date(2019,01,01)).
+	zanimaet(6, 6, date(2019,01,01)).
+	zanimaet(7, 3, date(2018,01,01)).
+	zanimaet(8, 1, date(2018,01,01)).
+	zanimaet(9, 9, date(2022,01,01)).
+	zanimaet(10, 6, date(2022,01,01)).
+	zanimaet(11, 4, date(2017,01,01)).
+	zanimaet(12, 9, date(2017,01,01)).
+
+	salary(1, 50000).
+	salary(2, 60000).
+	salary(3, 45000).
+	salary(4, 55000).
+	salary(5, 70000).
+	salary(6, 65000).
+	salary(7, 40000).
+	salary(8, 80000).
+	salary(9, 50000).
+	salary(10, 60000).
+	salary(11, 55000).
+	salary(12, 70000).
