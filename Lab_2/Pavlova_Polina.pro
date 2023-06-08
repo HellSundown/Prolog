@@ -1,5 +1,3 @@
-﻿% Copyright
-
 implement main
     open core, file, stdio
 
