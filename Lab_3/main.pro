@@ -18,8 +18,45 @@ class facts - company
 %----------------^^^осталось без изменений^^^----------------
 
 class predicates
+    length : (A*) -> integer N.
+    summ : (real* List) -> real Sum.
+    laverage : (real* List) -> real Average determ.
+    max : (real* List, real Max [out]) nondeterm.
+    min : (real* List, real Min [out]) nondeterm.
+
+clauses
+    length([]) = 0.
+    length([_ | T]) = length(T) + 1.
+    summ([]) = 0.
+    summ([B | T]) = summ(T) + B.
+
+    laverage(L) = summ(L) / length(L) :-
+        length(L) > 0.
+    max([Max], Max).
+
+    max([B1, B2 | T], Max) :-
+        B1 >= B2,
+        max([B1 | T], Max).
+
+    max([B1, B2 | T], Max) :-
+        B1 <= B2,
+        max([B2 | T], Max).
+    min([Min], Min).
+
+    min([B1, B2 | T], Min) :-
+        B1 <= B2,
+        min([B1 | T], Min).
+
+    min([B1, B2 | T], Min) :-
+        B1 >= B2,
+        min([B2 | T], Min).
+
+class predicates
     plist : (main::company*) nondeterm.
     v_otdele : (string Otdel) -> main::company* VOtdele nondeterm.
+    sumsalary : () -> real Sum.
+    maxsalary : () -> real Max determ.
+    minsalary : () -> real Min determ.
 
 clauses
     v_otdele(Otdel) = VOtdele :-
@@ -33,6 +70,18 @@ clauses
         write(X),
         nl,
         plist(Y).
+
+    sumsalary() = Sum :-
+        Sum = summ([ Budget || salary(_, Budget) ]).
+
+    maxsalary() = Res :-
+        max([ Budget || salary(_, Budget) ], Max),
+        Res = Max,
+        !.
+    minsalary() = Res :-
+        min([ Budget || salary(_, Budget) ], Min),
+        Res = Min,
+        !.
 %----------------------------------------------------------------------
     run() :-
         file::consult("../rabot.txt", company),
@@ -43,7 +92,14 @@ clauses
         plist(PList),
         nl,
         fail.
-
+    run() :-
+        write("\nСумма для всей компании:", sumsalary()),
+        nl,
+        write("Максимальная зарплата сотрудника:", maxsalary()),
+        nl,
+        write("Минимальная зарплата сотрудника:", minsalary()),
+        nl,
+        fail.
     run() :-
         succeed.
 
